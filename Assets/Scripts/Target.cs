@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Hello : MonoBehaviour
+public class Target : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
     {
-		Debug.Log("Issou");
+        
     }
 
     // Update is called once per frame
@@ -15,4 +15,9 @@ public class Hello : MonoBehaviour
     {
         
     }
+
+	void OnCollisionEnter(Collision collision) {
+		Destroy(collision.gameObject);
+		Debug.Log("Touched");
+	}
 }
