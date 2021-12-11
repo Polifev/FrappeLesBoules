@@ -18,6 +18,6 @@ public class Target : MonoBehaviour
 
 	void OnCollisionEnter(Collision collision) {
 		Destroy(collision.gameObject);
-		Debug.Log("Touched");
+		GameManager.Instance.AddPoint(10);
 	}
 }
