@@ -12,7 +12,8 @@ public class GameManager : MonoBehaviour
 
 	[SerializeField]
 	private Text _text;
-	private int _score;
+	private int _score = 0;
+	private bool _finished = false;
 
     // Start is called before the first frame update
     void Start()
@@ -22,7 +23,15 @@ public class GameManager : MonoBehaviour
     }
 
 	public void AddPoint(int points){
-		_score += points;
-		_text.text = $"Score : {_score}";
+		if(! _finished){
+			_score += points;
+			_text.text = $"Score : {_score}";
+		}
+		
+	}
+
+	public void Lose(){
+		_finished = true;
+		_text.text = $"PERDU ! Score final: {_score}";
 	}
 }

@@ -450,9 +450,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 80, y: -15}
-  m_SizeDelta: {x: 160, y: 30}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 720, y: 30}
+  m_Pivot: {x: 0, y: 1}
 --- !u!114 &1113751019
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -822,6 +822,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _ballPrefab: {fileID: 4238911503533683732, guid: bb5eb8e93e5122241808ccee7cf03c4a,
     type: 3}
+  _bombPrefab: {fileID: 9081983310483211624, guid: 06bafa94116143c49bdcb89612771f61,
+    type: 3}
+  _bombProbability: 0.1
   _ballOrigin: {fileID: 34553852}
   _initialForce: 48
   _shootInterval: 2

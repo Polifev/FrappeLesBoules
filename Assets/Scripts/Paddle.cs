@@ -14,13 +14,19 @@ public class Paddle : MonoBehaviour
     }
 
 	void OnCollisionEnter(Collision collision){
-		Vector3 relativePosition = collision.transform.position - transform.position;
-		Vector3 direction = - Vector3.Project(relativePosition, transform.forward).normalized;
-		Debug.Log(direction);
+		if(collision.gameObject.tag == "Bomb"){
+			GameManager.Instance.Lose();
+		} else {
+			Vector3 relativePosition = collision.transform.position - transform.position;
+			Vector3 direction = - Vector3.Project(relativePosition, transform.forward).normalized;
+			Debug.Log(direction);
 
-		collision.collider.attachedRigidbody.AddForce(
-			direction * _amplifiedForce,
-			ForceMode.Impulse
-		);
+			collision.collider.attachedRigidbody.AddForce(
+				direction * _amplifiedForce,
+				ForceMode.Impulse
+			);
+		}
+
+		
 	}
 }
