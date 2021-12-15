@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Paddle : MonoBehaviour
 {
@@ -17,6 +15,7 @@ public class Paddle : MonoBehaviour
 		if(collision.gameObject.tag == "Bomb"){
 			GameManager.Instance.Lose();
 		} else {
+			//Rebond de la raquette
 			Vector3 relativePosition = collision.transform.position - transform.position;
 			Vector3 direction = - Vector3.Project(relativePosition, transform.forward).normalized;
 			Debug.Log(direction);

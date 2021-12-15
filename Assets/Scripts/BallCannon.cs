@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class BallCannon : MonoBehaviour
 {
@@ -36,13 +34,17 @@ public class BallCannon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		if(_shootInterval <= 0)
-			return;
-		
-        _currentTimer += Time.deltaTime;
-		while(_currentTimer >= _shootInterval){
-			Shoot();
-			_currentTimer -= _shootInterval;
+		if(GameManager.Instance.CurrentState == GameState.InGame)
+        {
+			if (_shootInterval <= 0)
+				return;
+
+			_currentTimer += Time.deltaTime;
+			while (_currentTimer >= _shootInterval)
+			{
+				Shoot();
+				_currentTimer -= _shootInterval;
+			}
 		}
     }
 
