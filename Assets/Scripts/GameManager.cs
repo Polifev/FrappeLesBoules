@@ -20,10 +20,16 @@ public class GameManager : MonoBehaviour
 	private GameObject _mainMenu;
 	[SerializeField]
 	private GameObject _gameOver;
+	[SerializeField]
+	private BallCannon _cannon;
 
 	[SerializeField]
 	private Text _text;
 	private int _score = 0;
+	private float _timer = 0.0f;
+	private float _timerLastStep = 0.0f;
+	[SerializeField]
+	private float _timerStep = 20.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -33,11 +39,23 @@ public class GameManager : MonoBehaviour
 		//_text.text = $"Score : {_score}";
     }
 
+	void Update()
+	{
+		if(_currentState == GameState.InGame){
+			_timer += Time.deltaTime;
+			if(_timer > _timerLastStep + _timerStep){
+				_timerLastStep += _timerStep;
+				_cannon.IncreaseSpeed();
+			}
+		}
+	}
+
 	public void StartGame()
     {
 		_score = 0;
+		_timer = 0;
+		_timerLastStep = 0;
 		_mainMenu.SetActive(false);
-		//Start cannon
 		_currentState = GameState.InGame;
     }
 
@@ -51,7 +69,6 @@ public class GameManager : MonoBehaviour
 	public void AddPoint(int points){
 		if(_currentState == GameState.InGame){
 			_score += points;
-			//_text.text = $"Score : {_score}";
 		}
 		
 	}

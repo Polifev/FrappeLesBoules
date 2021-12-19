@@ -10,6 +10,9 @@ public class Paddle : MonoBehaviour
 	[SerializeField]
 	private AudioClip _ball;
 
+	[SerializeField]
+	private GameObject _explosion;
+
 	private AudioSource _audio;
 
     // Start is called before the first frame update
@@ -21,22 +24,19 @@ public class Paddle : MonoBehaviour
 	void OnCollisionEnter(Collision collision){
 		if(collision.gameObject.tag == "Bomb"){
 			_audio.PlayOneShot(_bomb);
-			// TODO vibrer
-			// TODO explosion
+			OVRInput.SetControllerVibration(.5f, .5f, OVRInput.Controller.All);
+			Instantiate(_explosion, transform);
 			GameManager.Instance.Lose();
 		} else {
 			_audio.PlayOneShot(_ball);
 			//Rebond de la raquette
 			Vector3 relativePosition = collision.transform.position - transform.position;
 			Vector3 direction = - Vector3.Project(relativePosition, transform.forward).normalized;
-			Debug.Log(direction);
 
 			collision.collider.attachedRigidbody.AddForce(
 				direction * _amplifiedForce,
 				ForceMode.Impulse
 			);
 		}
-
-		
 	}
 }

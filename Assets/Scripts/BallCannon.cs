@@ -44,4 +44,12 @@ public class BallCannon : MonoBehaviour
 		projectile.GetComponent<Rigidbody>().AddForce(_ballOrigin.up * _initialForce, ForceMode.Impulse);
 		projectile.transform.parent = null;
 	}
+
+	internal void IncreaseSpeed()
+	{
+		_shootInterval -= 0.2f;
+		if(_shootInterval < 0.2f){
+			_shootInterval = 0.2f;
+		}
+	}
 }
