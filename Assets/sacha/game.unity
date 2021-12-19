@@ -5445,11 +5445,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1516295342}
     m_Modifications:
-    - target: {fileID: 6474128849345807557, guid: 8a925fc30142b9b4ca6888806a5f0fca,
-        type: 3}
-      propertyPath: _explosion
-      value: 
-      objectReference: {fileID: 100008, guid: 875c9bcb71a8d7f46a64a8a7df5987e0, type: 3}
     - target: {fileID: 6474128849345807559, guid: 8a925fc30142b9b4ca6888806a5f0fca,
         type: 3}
       propertyPath: m_RootOrder
@@ -11061,7 +11056,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39347965665ed5a4c9f8cf6f5b288559, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bombProbability: 0
+  _bombProbability: 0.1
   _ballOrigin: {fileID: 430179329}
   _initialForce: 130
   _shootInterval: 2
