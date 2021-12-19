@@ -60,7 +60,7 @@ public class BallPool : MonoBehaviour
 		foreach(GameObject bomb in _bombPool){
 			if(!bomb.activeSelf){
 				bomb.transform.parent = parent;
-				bomb.transform.position = new Vector3();
+				bomb.transform.localPosition = new Vector3();
 				bomb.GetComponent<Rigidbody>().velocity = new Vector3();
 				bomb.SetActive(true);
 				return bomb;

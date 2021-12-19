@@ -8,7 +8,14 @@ public class Target : MonoBehaviour
 	[SerializeField]
 	private Transform _maxPosition;
 
+	private AudioSource _audio;
+
+	void Start(){
+		_audio = GetComponent<AudioSource>();
+	}
+
 	void OnCollisionEnter(Collision collision) {
+		_audio.Play();
 		//Destroy ball
 		Destroy(collision.gameObject);
 		//10 points when touch a target
